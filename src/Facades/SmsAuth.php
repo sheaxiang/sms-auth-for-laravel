@@ -13,6 +13,6 @@ class SmsAuth extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'SmsAuth';
+        return 'SmsAuth';s
     }
 }
