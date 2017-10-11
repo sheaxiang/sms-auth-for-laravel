@@ -1,9 +1,9 @@
 <?php
 
-namespace Sheaxiang\Sms;
+namespace Sheaxiang\SmsAuth;
 
 use Illuminate\Support\ServiceProvider;
-use Sheaxiang\Sms\Facades\SmsAuth;
+use Sheaxiang\SmsAuth\Facades\SmsAuth;
 
 class SmsAuthServiceProvider extends ServiceProvider
 {
