@@ -25,12 +25,6 @@ class SmsAuthServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/sms-auth.php' => config_path('sms-auth.php')
         ], 'config');
-
-        // Validator extensions
-        $this->app['validator']->extend('sms_auth', function($attribute, $value, $parameters)
-        {
-            return captcha_check($value);
-        });
     }
 
     /**
