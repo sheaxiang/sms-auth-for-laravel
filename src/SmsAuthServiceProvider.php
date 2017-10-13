@@ -1,9 +1,9 @@
 <?php
 
-namespace Sheaxiang\SmsAuth;
+namespace Sheaxiang\Sms;
 
 use Illuminate\Support\ServiceProvider;
-use Sheaxiang\SmsAuth\Facades\SmsAuth;
+use Sheaxiang\Sms\Facades\Sms;
 
 class SmsAuthServiceProvider extends ServiceProvider
 {
@@ -40,7 +40,7 @@ class SmsAuthServiceProvider extends ServiceProvider
         );
 
         $this->app->singleton('sms-auth', function ($app) {
-            return new SmsAuth($app['request']->server->all());
+            return new Sms($app['request']->server->all());
         });
     }
 }

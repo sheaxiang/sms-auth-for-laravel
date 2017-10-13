@@ -1,10 +1,10 @@
 <?php
-namespace Sheaxiang\SmsAuth;
+namespace Sheaxiang\Sms;
 
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Cache;
 
-class SmsAuth
+class Sms
 {
     /**
      * @var string
