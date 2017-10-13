@@ -40,7 +40,7 @@ class SmsAuthServiceProvider extends ServiceProvider
         );
 
         $this->app->singleton('sms-auth', function ($app) {
-            return new SmsAuth($app['config']);
+            return new SmsAuth($app['request']->server->all());
         });
     }
 }
