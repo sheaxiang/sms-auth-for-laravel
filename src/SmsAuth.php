@@ -57,7 +57,6 @@ class SmsAuth
         if ($gets['SubmitResult']['code'] == 2) {
             if ($check) {
                 session(['mobile' => $mobile, 'random' => $replace[$check - 1]]);
-                //Cache::put($cache['key'], $replace[$check - 1], $this->expire);
             }
             return true;
         }
