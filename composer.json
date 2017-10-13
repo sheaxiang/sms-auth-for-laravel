@@ -1,21 +1,21 @@
 {
-    "name": "sheaxiang/sms-auth",
-    "description": "sms-auth for laravel",
+    "name": "sheaxiang/sms",
+    "description": "sms for laravel",
     "keywords": ["sms","laravel", "sdk"],
     "license": "MIT",
     "authors": [
         {
-            "name": "sheaxiang",
-            "email": "sheaxiang@126.com"
+          "name": "sheaxiang",
+          "email": "sheaxiang@126.com"
         }
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.5.9"
+      "php": ">=5.5.9"
     },
     "autoload": {
-        "psr-4": {
-            "SheaXiang\\Sms\\": "src/"
-        }
+      "psr-4": {
+        "SheaXiang\\SmsAuth\\": "src/"
+      }
     }
 }
