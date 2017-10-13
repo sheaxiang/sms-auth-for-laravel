@@ -1,6 +1,7 @@
 {
     "name": "sheaxiang/sms-auth",
     "description": "sms-auth for laravel",
+    "keywords": ["sms","laravel", "sdk"],
     "license": "MIT",
     "authors": [
         {
@@ -8,7 +9,7 @@
             "email": "sheaxiang@126.com"
         }
     ],
-    "minimum-stability": "1.0",
+    "minimum-stability": "dev",
     "require": {},
     "autoload": {
         "psr-4": {
