@@ -1,6 +1,6 @@
 <?php
 
-namespace Sheaxiang\SmsAuth;
+namespace SheaXiang\SmsAuth;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -33,6 +33,9 @@ class SmsAuthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->bind('SmsAuth', function()
+        {
+            return new SmsAuth();
+        });
     }
 }

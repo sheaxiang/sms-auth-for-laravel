@@ -1,6 +1,6 @@
 <?php
 
-namespace Sheaxiang\SmsAuth\Facades;
+namespace SheaXiang\SmsAuth\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

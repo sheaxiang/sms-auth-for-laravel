@@ -1,5 +1,5 @@
 <?php
-namespace Sheaxiang\SmsAuth;
+namespace SheaXiang\SmsAuth;
 
 use Illuminate\Http\Exceptions\HttpResponseException;
 
