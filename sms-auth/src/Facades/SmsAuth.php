@@ -1,10 +1,10 @@
 <?php
 
-namespace Sheaxiang\Sms\Facades;
+namespace Sheaxiang\SmsAuth\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Sms extends Facade
+class SmsAuth extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class Sms extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'sms';
+        return 'SmsAuth';
     }
 }

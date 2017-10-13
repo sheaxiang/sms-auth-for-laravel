@@ -1,9 +1,8 @@
 <?php
 
-namespace Sheaxiang\Sms;
+namespace Sheaxiang\SmsAuth;
 
 use Illuminate\Support\ServiceProvider;
-use Sheaxiang\Sms\Facades\Sms;
 
 class SmsAuthServiceProvider extends ServiceProvider
 {
@@ -23,8 +22,8 @@ class SmsAuthServiceProvider extends ServiceProvider
     {
         // Publish configuration files
         $this->publishes([
-            __DIR__.'/../config/sms-auth.php' => config_path('sms-auth.php')
-        ], 'config');
+            __DIR__.'/../../config/sms-auth.php' => config_path('sms-auth.php')
+        ]);
     }
 
     /**
@@ -34,13 +33,6 @@ class SmsAuthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Merge configs
-        $this->mergeConfigFrom(
-            __DIR__.'/../config/sms-auth.php', 'sms-auth'
-        );
 
-        $this->app->singleton('sms-auth', function ($app) {
-            return new Sms($app['request']->server->all());
-        });
     }
 }
