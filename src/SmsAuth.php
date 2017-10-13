@@ -51,18 +51,27 @@ class SmsAuth
         return $this->manager_send(config('sms.ihuyi.tpl.'.$purpose), $search, $replace, $mobile, 1,['key' => $purpose.'_'.$mobile, 'value' => $replace]);
     }
 
-    public function check($mobile,$purpose,$code)
+    public function check($mobile,$code)
     {
-        return $this->manager_check($purpose.'_'.$mobile, $code);
+        return $this->manager_check($mobile, $code);
     }
 
-    public function manager_check($key, $random, $clear = true)
+    /*public function manager_check($key, $random, $clear = true)
     {
         if (Cache::get($key) != $random) {
             return false;
         }
         if ($clear)
             Cache::put($key, null);
+        return true;
+    }*/
+
+    public function manager_check($mobile, $random)
+    {
+        if ($mobile != session('mobile') || $random != session('random')) {
+            return false;
+        }
+        session(['mobile' => '', 'random' => '']);
         return true;
     }
 
@@ -76,7 +85,8 @@ class SmsAuth
         $gets = $this->xmlToArray($this->post($post_data, config('sms.ihuyi.target')));
         if ($gets['SubmitResult']['code'] == 2) {
             if ($check) {
-                Cache::put($cache['key'], $replace[$check - 1], $this->expire);
+                session(['mobile' => $mobile, 'random' => $replace[$check - 1]]);
+                //Cache::put($cache['key'], $replace[$check - 1], $this->expire);
             }
             return true;
         }
