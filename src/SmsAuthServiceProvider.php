@@ -22,7 +22,7 @@ class SmsAuthServiceProvider extends ServiceProvider
     {
         // Publish configuration files
         $this->publishes([
-            __DIR__.'/../../config/sms-auth.php' => config_path('sms-auth.php')
+            __DIR__.'/../config/sms-auth.php' => config_path('sms-auth.php')
         ]);
     }
 
