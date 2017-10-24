@@ -9,8 +9,7 @@
           "email": "sheaxiang@126.com"
         }
     ],
-    "minimum-stability": "stable",
-    "prefer-stable": true,
+    "minimum-stability": "dev",
     "require": {
       "php": ">=5.5.9"
     },
