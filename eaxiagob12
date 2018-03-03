@@ -1,0 +1,25 @@
+[33mtag 1.0[m
+Tagger: xiangxingyu <642290531@qq.com>
+Date:   Sat Mar 3 11:05:49 2018 +0800
+
+1.0
+
+[33mcommit b5e9f77059c6207b029af8389157edbd1d600497[m[33m ([m[1;33mtag: 1.0[m[33m)[m
+Author: xiangxingyu <642290531@qq.com>
+Date:   Sat Mar 3 11:04:53 2018 +0800
+
+    update
+
+[1mdiff --git a/README.md b/README.md[m
+[1mindex dcd0088..fe79bb2 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -7,7 +7,7 @@[m
+ [m
+ # 安装[m
+ [m
+[31m-	composer require "sheaxiang/sms-auth:dev-master"[m
+[32m+[m	[32mcomposer require "sheaxiang/sms-auth:^1.0"[m
+ [m
+ # 配置[m
+ [m
