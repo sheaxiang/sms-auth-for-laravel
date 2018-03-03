@@ -7,7 +7,7 @@
 
 # 安装
 
-	composer require "sheaxiang/sms-auth:dev-master"
+	composer require "sheaxiang/sms-auth:^1.0"
 
 # 配置
 
