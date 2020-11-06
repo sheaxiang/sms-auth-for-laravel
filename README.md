@@ -1,4 +1,4 @@
-# sms-auth-for-laravel5
+# sms-auth-for-laravel
 
 # 说明
 
@@ -7,22 +7,15 @@
 
 # 安装
 
-	composer require "sheaxiang/sms-auth:^1.0"
+	composer require "sheaxiang/sms-auth"
 
 # 配置
 
-1：注册ServiceProvider：
-
-	SheaXiang\SmsAuth\SmsAuthServiceProvider::class
-
-2：创建配置文件：
+1：创建配置文件：
 
 	php artisan vendor:publish --provider="SheaXiang\SmsAuth\SmsAuthServiceProvider"
-
-3：添加门面到config/app.php 中的 aliases 部分:
-
-	'SmsAuth' => SheaXiang\SmsAuth\Facades\SmsAuth::class
-4：在config/sms-auth.php
+	
+2：在config/sms-auth.php
 
 	<?php
 	
