@@ -2,19 +2,10 @@
 namespace SheaXiang\SmsAuth;
 
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Support\Facades\Cache;
 
 class SmsAuth
 {
-    /**
-     * @var string
-     */
-    protected $target = 'http://106.ihuyi.cn/webservice/sms.php?method=Submit';
-
-    /**
-     * @var int
-     */
-    protected $expire = 5;
-
     /**
      * 发送验证码
      *
@@ -25,23 +16,21 @@ class SmsAuth
         $search = [
             '%var_1%'
         ];
-        $replace = [
-            (new static)->random(6, 1)
-        ];
-        return (new static)->manager_send(config('sms-auth.ihuyi.tpl.'.$purpose), $search, $replace, $mobile, 1,['key' => $purpose.'_'.$mobile, 'value' => $replace]);
+        $random =  (new static)->random(6, 1);
+        $replace = [$random];
+        return (new static)->manager_send(config('sms-auth.ihuyi.tpl.'.$purpose), $search, $replace, $mobile, 1,['key' => $purpose.'_'.$mobile, 'value' => $random]);
     }
 
-    public static function check($mobile,$code)
+    public static function check($phone, $code, $key)
     {
-        return (new static)->manager_check($mobile, $code);
-    }
+        $key = $key.'_'.$phone;
+        $verifyData = Cache::get($key);
 
-    public function manager_check($mobile, $random)
-    {
-        if ($mobile != session('mobile') || $random != session('random')) {
+        if ($verifyData !== $code) {
             return false;
         }
-        session(['mobile' => '', 'random' => '']);
+        // 清除验证码缓存
+        Cache::forget($key);
         return true;
     }
 
@@ -54,9 +43,10 @@ class SmsAuth
         $post_data = "account=" . config('sms-auth.ihuyi.account'). "&password=" . config('sms-auth.ihuyi.password'). "&mobile=" . $mobile . "&content=" . rawurlencode($content);
 
         $gets = $this->xmlToArray($this->post($post_data, $this->target));
+
         if ($gets['SubmitResult']['code'] == 2) {
             if ($check) {
-                session(['mobile' => $mobile, 'random' => $replace[$check - 1]]);
+                Cache::put($cache['key'],$cache['value'],now()->addMinutes($this->expire));
             }
             return true;
         }

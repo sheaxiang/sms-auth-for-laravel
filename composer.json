@@ -16,5 +16,15 @@
       "psr-4": {
         "SheaXiang\\SmsAuth\\": "src/"
       }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "SheaXiang\\SmsAuth\\SmsAuthServiceProvider"
+        ],
+        "aliases": {
+          "SmsAuth": "SheaXiang\\SmsAuth\\Facades\\SmsAuth"
+        }
+      }
     }
 }
