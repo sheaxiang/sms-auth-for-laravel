@@ -7,6 +7,16 @@ use Illuminate\Support\Facades\Cache;
 class SmsAuth
 {
     /**
+     * @var string
+     */
+    protected $target = 'http://106.ihuyi.cn/webservice/sms.php?method=Submit';
+
+    /**
+     * @var int
+     */
+    protected $expire = 5;
+
+    /**
      * 发送验证码
      *
      * @param $mobile
