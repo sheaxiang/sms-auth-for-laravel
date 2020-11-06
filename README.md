@@ -42,7 +42,7 @@
     {
     
         SmsAuth::send('手机号','register(用途)');//发送
-	    SmsAuth::check('手机号','验证码'));//检查验证码
+	    SmsAuth::check('手机号','验证码','register(用途)'));//检查验证码
     }
 
 # Todo
